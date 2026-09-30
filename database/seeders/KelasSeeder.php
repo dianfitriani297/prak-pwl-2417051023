@@ -3,8 +3,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
-use Carbon\Carbon;
+use App\Models\Kelas;
 
 class KelasSeeder extends Seeder
 {
@@ -13,18 +12,11 @@ class KelasSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = [
-            ['nama_kelas' => 'A'],
-            ['nama_kelas' => 'B'],
-            ['nama_kelas' => 'C'],
-            ['nama_kelas' => 'D'],
-        ];
+        $classes = ['A', 'B', 'C', 'D'];
 
-        foreach ($data as $item) {
-            DB::table('kelas')->insert([
-                'nama_kelas' => $item['nama_kelas'],
-                'created_at' => Carbon::now(),
-                'updated_at' => Carbon::now(),
+        foreach ($classes as $kelas) {
+            Kelas::create([
+                'nama_kelas' => $kelas
             ]);
         }
     }
