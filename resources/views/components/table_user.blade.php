@@ -2,7 +2,7 @@
     <table class="table table-hover align-middle mb-0" style="width: 100%;">
         <thead class="bg-light">
             <tr>
-                <th scope="col" class="py-2 px-3 fw-bold" style="color: #ff8fa3; width: 8%;">ID</th>
+                <th scope="col" class="py-2 px-3 fw-bold" style="color: #ff8fa3; width: 8%;">No</th>
                 <th scope="col" class="py-2 px-3 fw-bold" style="color: #ff8fa3; width: 35%;">Nama Lengkap</th>
                 <th scope="col" class="py-2 px-3 fw-bold" style="color: #ff8fa3; width: 42%;">NPM</th>
                 <th scope="col" class="py-2 px-3 fw-bold text-center" style="color: #ff8fa3; width: 15%;">Kelas</th>
@@ -20,7 +20,7 @@
                     </td>
                     <td class="py-2 px-3 text-center">
                         <span class="badge rounded-pill fw-semibold px-3 py-2 text-secondary bg-light border">
-                            {{ $user->kelas->nama_kelas ?? 'B' }}
+                            {{ $user->nama_kelas ?? '-' }}
                         </span>
                     </td>
                 </tr>
