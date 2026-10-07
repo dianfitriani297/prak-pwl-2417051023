@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $kelas = $this->kelasModel->getKelas();
         $data = [
-            'title' => 'Create User',
+            'title' => 'Buat User',
             'kelas' => $kelas,
         ];
         return view('create_user', $data);
@@ -45,5 +45,29 @@ class UserController extends Controller
             'users' => $this->userModel->getUser(),
         ];
         return view('list_user', $data);
+    }
+
+    public function edit($id)
+    {
+        $user = $this->userModel->edit($id);
+        $kelas = $this->kelasModel->getKelas();
+        $data = [
+            'title' => 'Edit User',
+            'user' => $user,
+            'kelas' => $kelas,
+        ];
+        return view('edit_user', $data);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->userModel->updateUser($request, $id);
+        return redirect()->to('/user')->with('success', 'Data user berhasil diperbarui!');
+    }
+
+    public function destroy($id)
+    {
+        $this->userModel->destroyUser($id);
+        return redirect()->to('/user')->with('success', 'Data user berhasil dihapus!');
     }
 }
